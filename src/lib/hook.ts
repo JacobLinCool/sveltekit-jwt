@@ -1,6 +1,12 @@
 import type { RequestEvent } from "@sveltejs/kit";
 import * as JWT from "@tsndr/cloudflare-worker-jwt";
 
+/**
+ * Authenticates and retrieves the payload from a JWT token in the authorization header or cookie.
+ * @param event The request event containing the headers and cookies.
+ * @param secret The secret used to verify the JWT token.
+ * @returns The payload of the verified JWT token, or undefined if authentication fails.
+ */
 export async function checkout<T extends JWT.JwtPayload>(
 	event: RequestEvent,
 	secret: string,

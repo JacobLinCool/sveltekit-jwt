@@ -15,10 +15,10 @@ import type { Handle, RequestEvent } from "@sveltejs/kit";
 
 export const handle: Handle = async ({ event, resolve }) => {
     // Check the expiration and signature of the token.
-    const token = await checkout(event, env.JWT_SECRET);
-    if (token) {
-        // You may want to check if the payload is valid.
-        event.locals.user = token;
+    const payload = await checkout(event, env.JWT_SECRET);
+    if (payload) {
+        // You may want to check if the payload is valid using zod or something.
+        event.locals.user = payload;
     }
 
     return resolve(event);
