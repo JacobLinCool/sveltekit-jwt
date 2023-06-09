@@ -6,6 +6,11 @@ impl JsonWebToken for SvelteKit.
 pnpm i -D sveltekit-jwt
 ```
 
+## Features
+
+- Support Asymmetric and Symmetric signature.
+- Auto cache remote JWKs (`jku`).
+
 ## Usage
 
 ```ts
@@ -18,7 +23,25 @@ export const handle: Handle = async ({ event, resolve }) => {
     const payload = await checkout(event, env.JWT_SECRET);
     if (payload) {
         // You may want to check if the payload is valid using zod or something.
-        event.locals.user = payload;
+        event.locals.token = payload;
+    }
+
+    return resolve(event);
+};
+```
+
+### Verify Asymmetric Signature
+
+If you are using asymmetric signature (`RSA` or `ECDSA`) with `jku` header provided, you don't need to pass the secret key.
+
+```ts
+import { checkout } from "sveltekit-jwt";
+import type { Handle, RequestEvent } from "@sveltejs/kit";
+
+export const handle: Handle = async ({ event, resolve }) => {
+    const payload = await checkout(event);
+    if (payload) {
+        event.locals.token = payload;
     }
 
     return resolve(event);
