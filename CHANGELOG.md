@@ -1,5 +1,13 @@
 # sveltekit-jwt
 
+## 0.2.1
+
+### Patch Changes
+
+-   [`048326c`](https://github.com/JacobLinCool/sveltekit-jwt/commit/048326c626af9c1016a943644f09b523cb3ae249) Thanks [@JacobLinCool](https://github.com/JacobLinCool)! - Support svelte 4
+
+-   [`c77cbc3`](https://github.com/JacobLinCool/sveltekit-jwt/commit/c77cbc311ac5b117ab5ee2171d54018684e209ba) Thanks [@JacobLinCool](https://github.com/JacobLinCool)! - Add import specifier for `import`
+
 ## 0.2.0
 
 ### Minor Changes
