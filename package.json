@@ -33,7 +33,7 @@
 		"!dist/**/*.spec.*"
 	],
 	"peerDependencies": {
-		"svelte": "^3.54.0"
+		"svelte": "^3.54.0 || ^4.0.0"
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.4.8",
